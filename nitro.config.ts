@@ -46,6 +46,9 @@ if (process.env.VERCEL) {
       },
     },
   }
+} else if (process.env.EDGEONE_PAGES) {
+  nitroOption.preset = "cloudflare-pages" // EdgeOne Pages使用与Cloudflare Pages相同的运行时
+  nitroOption.database = undefined // 禁用数据库配置
 } else if (process.env.BUN) {
   nitroOption.preset = "bun"
   nitroOption.database = {
